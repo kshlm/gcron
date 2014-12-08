@@ -42,8 +42,8 @@ def takeSnap(volname=""):
     import shlex
 
     timeStr = time.strftime("%Y%m%d%H%M%S")
-    cli = "/usr/bin/gluster snapshot create snapshot-%s %s" % \
-        (timeStr, volname)
+    cli = "/usr/sbin/gluster snapshot create %s-snapshot-%s %s" % \
+        (volname, timeStr, volname)
     log.debug("Running command '%s'", cli)
 
     p = subprocess.Popen(shlex.split(cli), stdout=subprocess.PIPE,
